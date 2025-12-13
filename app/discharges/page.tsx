@@ -129,21 +129,21 @@ export default function DischargePage() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-4">
             {stats.map((stat, index) => (
-              <div key={index} className="bg-white rounded-lg border border-gray-200 p-3 shadow-xs">
+              <div key={index} className="bg-white rounded-lg border border-gray-200 p-3 shadow-sm">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-xs text-gray-500 mb-0.5">{stat.label}</p>
                     <p className="text-lg font-bold text-gray-800">{stat.value}</p>
-                    <div className="flex items-center gap-0.5 mt-1">
+                    <div className="flex items-center gap-1 mt-1">
                       <ArrowUpDown className={`h-3 w-3 ${stat.change.startsWith('+') ? 'text-green-500' : 'text-red-500'}`} />
                       <span className={`text-xs ${stat.change.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>
                         {stat.change}
                       </span>
                     </div>
                   </div>
-                  <div className={`${stat.color} p-2 rounded-md`}>
+                  <div className={`${stat.color} p-2 rounded-md flex items-center justify-center`}>
                     <ClipboardCheck className="h-4 w-4 text-white" />
                   </div>
                 </div>
@@ -160,7 +160,7 @@ export default function DischargePage() {
                 <button
                   key={filter.id}
                   onClick={() => setSelectedFilter(filter.id)}
-                  className={`px-2.5 py-1 rounded-md text-xs font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-md text-xs font-medium transition-colors ${
                     selectedFilter === filter.id 
                       ? "bg-orange-600 text-white" 
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -173,7 +173,6 @@ export default function DischargePage() {
             
             <div className="flex gap-2">
               <div className="relative flex-1 md:flex-none md:w-48">
-                <Search className="absolute left-2.5 top-1/2 transform -translate-y-1/2 h-3.5 w-3.5 text-gray-400" />
                 <input
                   type="text"
                   placeholder="Search patients..."
