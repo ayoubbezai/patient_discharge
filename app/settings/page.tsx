@@ -8,7 +8,7 @@ import {
   Download, Trash2, Database, ChevronRight,
   X, CheckCircle, AlertCircle, Clock, Info
 } from "lucide-react";
-import NavBar from "../NavBar";
+import NavBar from "../components/NavBar";
 
 export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState("account");
