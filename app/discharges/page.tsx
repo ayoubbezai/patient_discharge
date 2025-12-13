@@ -153,7 +153,7 @@ export default function DischargePage() {
         </div>
 
         {/* Filters and Search */}
-        <div className="bg-white rounded-lg border border-gray-200 p-3 mb-4 shadow-xs">
+  <div className="bg-white rounded-lg border border-gray-200 p-3 mb-4 shadow-sm">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
             <div className="flex flex-wrap gap-2">
               {filters.map(filter => (
