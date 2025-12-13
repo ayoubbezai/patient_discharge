@@ -182,24 +182,24 @@ export default function NavBar({ children }: NavBarInterface) {
   return (
     <div className="flex h-screen overflow-hidden bg-gray-50">
       {/* Mobile Header */}
-      <div className="md:hidden flex flex-row justify-between items-center p-3 bg-orange-600 border-b sticky top-0 z-40 shadow-lg">
+  <div className="md:hidden flex flex-row justify-between items-center p-2.5 bg-orange-600 border-b sticky top-0 z-40 shadow-lg">
         <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-full bg-white/20 p-1.5 flex items-center justify-center">
-            <Activity className="h-5 w-5 text-white" />
+          <div className="h-7 w-7 rounded-full bg-white/20 p-1.5 flex items-center justify-center">
+            <Activity className="h-4 w-4 text-white" />
           </div>
-          <h1 className="text-base font-bold text-white">MediCare</h1>
+          <h1 className="text-sm font-bold text-white">MediCare</h1>
         </div>
-        <Button
+          <Button
           variant="ghost"
           size="icon"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
-          className="h-9 w-9 text-white/80 hover:bg-white/20"
+            className="h-7 w-7 text-white/80 hover:bg-white/20"
         >
           {mobileMenuOpen ? (
-            <X className="w-4.5 h-4.5" />
+            <X className="w-4 h-4" />
           ) : (
-            <Menu className="w-4.5 h-4.5" />
+            <Menu className="w-4 h-4" />
           )}
         </Button>
       </div>
@@ -207,7 +207,7 @@ export default function NavBar({ children }: NavBarInterface) {
       {/* Sidebar - Desktop */}
       <aside
         className={`hidden md:flex flex-col bg-white border-r shadow-lg transition-all duration-300 ease-in-out ${
-          isCollapsed ? "min-w-16" : "min-w-64"
+          isCollapsed ? "min-w-16" : "min-w-58"
         }`}
       >
         {/* Logo and Toggle */}
@@ -219,12 +219,12 @@ export default function NavBar({ children }: NavBarInterface) {
           {!isCollapsed && (
             <div className="flex items-center gap-3">
               <div className="rounded-xl">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center">
                   <span className="text-orange-600 font-bold">MC</span>
                 </div>
               </div>
               <div className="flex flex-col">
-                <h1 className="text-lg font-bold text-gray-800">Medi<span className="text-orange-600">Care</span></h1>
+                <h1 className="text-base font-bold text-gray-800">Medi<span className="text-orange-600">Care</span></h1>
                 <p className="text-xs text-gray-500">Discharge Management</p>
               </div>
             </div>
@@ -233,11 +233,11 @@ export default function NavBar({ children }: NavBarInterface) {
             variant="ghost"
             size="icon"
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="h-7 w-7 text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+            className="h-6 w-6 text-gray-500 hover:text-gray-800 hover:bg-gray-100"
             aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
             <ChevronLeft
-              className={`h-4 w-4 transition-transform ${
+              className={`h-3.5 w-3.5 transition-transform ${
                 isCollapsed ? "rotate-180" : ""
               }`}
             />
@@ -260,16 +260,16 @@ export default function NavBar({ children }: NavBarInterface) {
                   <li key={index}>
                     <Link
                       href={item.href}
-                      className={`flex items-center rounded-lg text-sm font-medium transition-all ${
+                      className={`flex items-center rounded-lg text-xs font-medium transition-all ${
                         isActive
                           ? "bg-orange-50 text-orange-700 border-l-2 border-orange-700"
                           : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                       } ${isCollapsed ? "justify-center p-3" : "p-3 gap-3"}`}
                       title={isCollapsed ? item.label : ""}
                     >
-                      <IconComponent className={`h-5 w-5 flex-shrink-0 ${isActive ? "text-orange-600" : "text-gray-500"}`} />
+                      <IconComponent className={`h-4 w-4 flex-shrink-0 ${isActive ? "text-orange-600" : "text-gray-500"}`} />
                       {!isCollapsed && (
-                        <span className="truncate text-sm">{item.label}</span>
+                        <span className="truncate text-[0.8rem]">{item.label}</span>
                       )}
                     </Link>
                   </li>
@@ -300,7 +300,7 @@ export default function NavBar({ children }: NavBarInterface) {
                       } ${isCollapsed ? "justify-center p-3" : "p-3 gap-3"}`}
                       title={isCollapsed ? item.label : ""}
                     >
-                      <IconComponent className={`h-5 w-5 flex-shrink-0 ${isActive ? "text-orange-600" : "text-gray-500"}`} />
+                      <IconComponent className={`h-4 w-4 flex-shrink-0 ${isActive ? "text-orange-600" : "text-gray-500"}`} />
                       {!isCollapsed && (
                         <span className="truncate text-sm">{item.label}</span>
                       )}
@@ -343,7 +343,7 @@ export default function NavBar({ children }: NavBarInterface) {
           <aside className="md:hidden fixed top-0 left-0 h-full w-64 bg-white border-r z-50 shadow-2xl">
             <div className="flex items-center justify-between p-4 border-b">
               <div className="flex items-center gap-3">
-                <div className="h-9 w-9 rounded-full bg-orange-100 p-2 flex items-center justify-center">
+                <div className="h-8 w-8 rounded-full bg-orange-100 p-2 flex items-center justify-center">
                   <div className="rounded-xl">
                     <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
                       <span className="text-orange-600 font-bold">MC</span>
@@ -351,7 +351,7 @@ export default function NavBar({ children }: NavBarInterface) {
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  <h1 className="text-lg font-bold text-gray-800">MediCare</h1>
+                  <h1 className="text-base font-bold text-gray-800">MediCare</h1>
                   <p className="text-xs text-gray-500">Discharge Management</p>
                 </div>
               </div>
@@ -359,7 +359,7 @@ export default function NavBar({ children }: NavBarInterface) {
                 variant="ghost"
                 size="icon"
                 onClick={() => setMobileMenuOpen(false)}
-                className="h-8 w-8 text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                className="h-7 w-7 text-gray-500 hover:text-gray-800 hover:bg-gray-100"
                 aria-label="Close menu"
               >
                 <X className="h-4 w-4" />
@@ -370,8 +370,8 @@ export default function NavBar({ children }: NavBarInterface) {
             {user && (
               <div className="p-4 border-b">
                 <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-                    <span className="text-white font-semibold text-lg">
+                  <div className="h-10 w-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                    <span className="text-white font-semibold text-sm">
                       {getUserInitials()}
                     </span>
                   </div>
@@ -415,7 +415,7 @@ export default function NavBar({ children }: NavBarInterface) {
                               : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                           }`}
                         >
-                          <IconComponent className={`h-5 w-5 flex-shrink-0 ${isActive ? "text-orange-600" : "text-gray-500"}`} />
+                          <IconComponent className={`h-4 w-4 flex-shrink-0 ${isActive ? "text-orange-600" : "text-gray-500"}`} />
                           <span className="text-sm">{item.label}</span>
                         </Link>
                       </li>
@@ -443,7 +443,7 @@ export default function NavBar({ children }: NavBarInterface) {
                               : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                           }`}
                         >
-                          <IconComponent className={`h-5 w-5 flex-shrink-0 ${isActive ? "text-orange-600" : "text-gray-500"}`} />
+                          <IconComponent className={`h-4 w-4 flex-shrink-0 ${isActive ? "text-orange-600" : "text-gray-500"}`} />
                           <span className="text-sm">{item.label}</span>
                         </Link>
                       </li>
@@ -473,7 +473,7 @@ export default function NavBar({ children }: NavBarInterface) {
         {/* Top Navigation Bar */}
         <div className="hidden md:flex items-center justify-between p-4 bg-white border-b shadow-sm">
           <div className="flex items-center gap-4">
-            <h1 className="text-xl font-bold text-gray-800">
+            <h1 className="text-base font-bold text-gray-800">
               {pathname === "/dashboard" ? "Discharge Dashboard" : 
                pathname === "/staff" ? "Staff Management" :
                pathname === "/patients" ? "Patient Care" :
@@ -488,11 +488,10 @@ export default function NavBar({ children }: NavBarInterface) {
           <div className="flex items-center gap-4">
             {/* Search Bar */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search patients..."
-                className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent w-64"
+                placeholder=".  Search patients..."
+                className="pl-9 pr-3 py-1.5 border rounded-md text-xs focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent w-56"
               />
             </div>
             
@@ -511,7 +510,7 @@ export default function NavBar({ children }: NavBarInterface) {
               </Button>
               
               {showLanguageDropdown && (
-                <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border overflow-hidden z-50">
+                <div className="absolute right-0 mt-2 w-38 bg-white rounded-lg shadow-lg border overflow-hidden z-50">
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
@@ -537,15 +536,15 @@ export default function NavBar({ children }: NavBarInterface) {
               title="Toggle Fullscreen (F)"
             >
               {isFullScreen ? (
-                <Minimize className="h-4 w-4" />
+                <Minimize className="h-3.5 w-3.5" />
               ) : (
-                <Maximize className="h-4 w-4" />
+                <Maximize className="h-3.5 w-3.5" />
               )}
             </Button>
             
             {/* Notifications */}
             <Button variant="ghost" size="icon" className="relative">
-              <Bell className="h-5 w-5" />
+              <Bell className="h-3.5 w-3.5" />
               <span className="absolute -top-1 -right-1 h-2 w-2 bg-red-500 rounded-full"></span>
             </Button>
             
@@ -554,8 +553,8 @@ export default function NavBar({ children }: NavBarInterface) {
             
             {/* Add New Button - Hospital version */}
             <Button className="bg-orange-600 hover:bg-orange-700">
-              <PlusCircle className="h-4 w-4 mr-2" />
-              <span>New Discharge</span>
+              <PlusCircle className="h-3.5 w-3.5 mr-2" />
+              <span className="text-sm">New Discharge</span>
             </Button>
             
             {/* User Profile */}
@@ -565,7 +564,7 @@ export default function NavBar({ children }: NavBarInterface) {
                 className="flex items-center gap-2"
                 onClick={() => setShowAccountDropdown(!showAccountDropdown)}
               >
-                <div className="h-8 w-8 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                <div className="h-7 w-7 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
                   <span className="text-white text-sm font-semibold">
                     {getUserInitials()}
                   </span>
@@ -588,7 +587,7 @@ export default function NavBar({ children }: NavBarInterface) {
                   {user && (
                     <div className="p-3 border-b">
                       <div className="flex items-center gap-2">
-                        <div className="h-8 w-8 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                        <div className="h-7 w-7 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
                           <span className="text-white text-sm font-semibold">
                             {getUserInitials()}
                           </span>
@@ -645,7 +644,7 @@ export default function NavBar({ children }: NavBarInterface) {
         {/* Mobile Top Bar */}
         <div className="md:hidden flex items-center justify-between p-3 bg-white border-b">
           <div>
-            <h2 className="text-lg font-semibold text-gray-800">
+            <h2 className="text-base font-semibold text-gray-800">
               {pathname === "/dashboard" ? "Dashboard" : 
                pathname === "/staff" ? "Staff" :
                pathname === "/patients" ? "Patients" :
@@ -658,9 +657,9 @@ export default function NavBar({ children }: NavBarInterface) {
           </div>
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="icon">
-              <Bell className="h-5 w-5" />
+              <Bell className="h-4 w-4" />
             </Button>
-            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+            <div className="h-7 w-7 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
               <span className="text-white text-sm font-semibold">
                 {getUserInitials()}
               </span>
