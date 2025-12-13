@@ -26,14 +26,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 
-interface PatientTableProps {
-  data: Patient[];
-  isLoading: boolean;
-  isError: boolean;
-  error: any;
-  getRandomColor: (name: string) => string;
-}
-
 // Patient type used throughout the table
 interface Patient {
   id: number;
@@ -47,6 +39,14 @@ interface Patient {
   status?: string;
   date_of_birth?: string;
   [key: string]: any;
+}
+
+interface PatientTableProps {
+  data: Patient[];
+  isLoading: boolean;
+  isError: boolean;
+  error: any;
+  getRandomColor: (name: string) => string;
 }
 
 // Memoized row component
@@ -221,8 +221,8 @@ const ActionsCell = React.memo(
     item: Patient;
     selectedMenu: string | undefined;
     setSelectedMenu: (id: string | undefined) => void;
-    handleEdit: (patientId: string) => void;
-    handleDischarge: (patientId: string) => void;
+    handleEdit: (patientId: number) => void;
+    handleDischarge: (patientId: number) => void;
   }) => {
     const isOpen = selectedMenu === item.id.toString();
 
@@ -240,7 +240,6 @@ const ActionsCell = React.memo(
               variant="ghost"
               className="h-8 w-8 p-0 border border-border"
             >
-              <span className="sr-only">Open menu</span>
               {isOpen ? (
                 <X className="h-4 w-4" />
               ) : (
@@ -251,7 +250,7 @@ const ActionsCell = React.memo(
 
           <DropdownMenuContent align="end" className="w-48">
             <DropdownMenuItem
-              onClick={() => handleEdit(item.id.toString())}
+              onClick={() => handleEdit(item.id)}
               className="font-medium text-xs flex items-center gap-2"
             >
               <Edit className="h-4 w-4" />
@@ -261,7 +260,7 @@ const ActionsCell = React.memo(
             <div className="h-px bg-border my-1" />
 
             <DropdownMenuItem
-              onClick={() => handleDischarge(item.id.toString())}
+              onClick={() => handleDischarge(item.id)}
               className="text-green-600 focus:text-green-600 font-medium text-xs flex items-center gap-2"
             >
               <CheckCircle className="h-4 w-4" />
