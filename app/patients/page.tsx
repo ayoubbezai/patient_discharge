@@ -27,13 +27,13 @@ export default function PatientsPage() {
   const [error, setError] = useState<any>(null);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Header stats data
+  // Header stats data - Made smaller
   const stats = [
     {
       title: "Total Patients",
       value: "156",
       change: "+12%",
-      icon: <Users className="h-5 w-5 text-blue-600" />,
+      icon: <Users className="h-4 w-4 text-blue-600" />, // Smaller icon
       color: "bg-blue-50",
       description: "Active patients"
     },
@@ -41,7 +41,7 @@ export default function PatientsPage() {
       title: "Today's Discharges",
       value: "18",
       change: "+3",
-      icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+      icon: <CheckCircle className="h-4 w-4 text-green-600" />, // Smaller icon
       color: "bg-green-50",
       description: "Scheduled for today"
     },
@@ -49,7 +49,7 @@ export default function PatientsPage() {
       title: "Pending Clearance",
       value: "12",
       change: "-2",
-      icon: <Clock className="h-5 w-5 text-orange-600" />,
+      icon: <Clock className="h-4 w-4 text-orange-600" />, // Smaller icon
       color: "bg-orange-50",
       description: "Awaiting approval"
     },
@@ -57,7 +57,7 @@ export default function PatientsPage() {
       title: "Critical Cases",
       value: "7",
       change: "+1",
-      icon: <Activity className="h-5 w-5 text-red-600" />,
+      icon: <Activity className="h-4 w-4 text-red-600" />, // Smaller icon
       color: "bg-red-50",
       description: "Require attention"
     }
@@ -206,94 +206,49 @@ export default function PatientsPage() {
 
   return (
     <NavBar>
-      <div className="max-w-7xl mx-auto p-4 md:p-6">
-        {/* Page Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">Patient Management</h1>
-            <p className="text-gray-600">Manage and monitor patient information</p>
-          </div>
-          <Button className="bg-orange-600 hover:bg-orange-700">
-            <Plus className="h-4 w-4 mr-2" />
-            Add New Patient
-          </Button>
-        </div>
+      <div className="max-w-7xl mx-auto p-3 md:p-4"> {/* Reduced padding */}
+        {/* Page Header - Made smaller */}
 
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+
+        {/* Stats Cards - Made smaller */}
+        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-3 mb-4"> {/* Reduced gap and margin */}
           {stats.map((stat, index) => (
-            <div key={index} className="bg-white rounded-lg border p-4 shadow-sm">
+            <div key={index} className="bg-white rounded-lg border p-3 shadow-sm"> {/* Reduced padding */}
               <div className="flex items-center justify-between">
-                <div className={`p-2 rounded-lg ${stat.color}`}>
+                <div className={`p-1.5 rounded-lg ${stat.color}`}> {/* Smaller padding */}
                   {stat.icon}
                 </div>
-                <span className={`text-sm font-medium ${
+                <span className={`text-xs font-medium ${
                   stat.change.startsWith('+') ? 'text-green-600' : 'text-red-600'
                 }`}>
                   {stat.change}
                 </span>
               </div>
-              <div className="mt-3">
-                <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
-                <p className="text-sm font-medium text-gray-700">{stat.title}</p>
-                <p className="text-xs text-gray-500 mt-1">{stat.description}</p>
+              <div className="mt-2"> {/* Reduced margin */}
+                <p className="text-lg font-bold text-gray-900">{stat.value}</p> {/* Smaller text */}
+                <p className="text-xs font-medium text-gray-700">{stat.title}</p> {/* Smaller text */}
+                <p className="text-xs text-gray-500 mt-0.5">{stat.description}</p> {/* Smaller text */}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Search and Filter Bar */}
-        <div className="bg-white rounded-lg border p-4 mb-4 shadow-sm">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-              <Input
-                type="text"
-                placeholder="Search patients by name, email, or department..."
-                className="pl-10"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button variant="outline" className="gap-2">
-                <Filter className="h-4 w-4" />
-                Filter
-              </Button>
-              <Button variant="outline">
-                Export
-              </Button>
-            </div>
+                <div className="flex my-4 py-4 flex-row justify-between items-start md:items-center gap-3 mb-4"> {/* Reduced gap and margin */}
+          <div className="flex flex-col justify-between">
+            <h1 className="text-xl font-bold text-gray-900">Patient Management</h1> {/* Smaller text */}
+            <p className="text-sm text-gray-600">Manage and monitor patient information</p> {/* Smaller text */}
           </div>
-          
-          {/* Quick Status Filters */}
-          <div className="flex flex-wrap gap-2 mt-4">
-            <Button variant="outline" size="sm" className="rounded-full">
-              All Patients
-            </Button>
-            <Button variant="outline" size="sm" className="rounded-full bg-green-50 text-green-700 border-green-200">
-              Active
-            </Button>
-            <Button variant="outline" size="sm" className="rounded-full bg-amber-50 text-amber-700 border-amber-200">
-              Pending
-            </Button>
-            <Button variant="outline" size="sm" className="rounded-full bg-blue-50 text-blue-700 border-blue-200">
-              Discharged
-            </Button>
-            <Button variant="outline" size="sm" className="rounded-full bg-red-50 text-red-700 border-red-200">
-              Critical
-            </Button>
-          </div>
+          <Button size="sm" className="bg-orange-600 hover:bg-orange-700 h-9"> {/* Smaller button */}
+            <Plus className="h-3.5 w-3.5 mr-1.5" /> {/* Smaller icon */}
+            Add New Patient
+          </Button>
         </div>
 
-        {/* Patients Table */}
-        <div className="mt-4">
-          <div className="mb-4">
-            <h2 className="text-lg font-semibold text-gray-900">Patient List</h2>
-            <p className="text-sm text-gray-600">
-              Showing {filteredPatients.length} of {patients.length} patients
-            </p>
-          </div>
+        {/* Search and Filter Bar - Made smaller */}
+       
+
+        {/* Patients Table Section - Made smaller */}
+        <div className="mt-3"> {/* Reduced margin */}
           
           <PatientTable
             data={filteredPatients}
