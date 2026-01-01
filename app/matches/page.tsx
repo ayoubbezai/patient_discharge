@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useMatches } from './hooks/useMatches';
-import { Calendar, MapPin, Users, Trophy, Eye, Loader2 } from 'lucide-react';
+import { Calendar, MapPin, Users, Trophy, Eye, Loader2, Clock } from 'lucide-react';
 import { format } from 'date-fns';
 
 const getStatusColor = (status: string) => {
@@ -187,36 +187,42 @@ export default function MatchesPage() {
                 <Card key={match.id} className="border-slate-200 shadow-sm hover:shadow-lg transition-all duration-200 bg-white">
                   <CardContent className="p-2.5 space-y-1.5">
                     <div className="flex items-start justify-between">
-                      <div>
-                        <p className="font-bold text-xs text-slate-900">Match #{match.id.slice(0, 8)}</p>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <p className="font-bold text-xs text-slate-900">Match #{match.id.slice(0, 8)}</p>
+                          <Badge className={`${getStatusColor(match.status)} text-xs px-1.5 py-0`}>
+                            {match.status}
+                          </Badge>
+                        </div>
                         <Badge className={`${getSkillLevelColor(match.skillLevel)} text-xs px-1.5 py-0 mt-1`}>
                           {match.skillLevel}
                         </Badge>
                       </div>
-                      <Badge className={`${getStatusColor(match.status)} text-xs px-1.5 py-0`}>
-                        {match.status}
-                      </Badge>
                     </div>
 
-                    <div className="space-y-0.5">
+                    <div className="space-y-0.5 pt-1">
                       <div className="flex items-center gap-1.5 text-xs text-slate-600">
-                        <MapPin className="w-3 h-3 text-emerald-600" />
-                        <span>Stadium: {match.stadiumId}</span>
+                        <MapPin className="w-3 h-3 text-emerald-600 flex-shrink-0" />
+                        <span className="truncate">Stadium ID: {match.stadiumId.slice(0, 8)}...</span>
                       </div>
                       <div className="flex items-center gap-1.5 text-xs text-slate-600">
-                        <Calendar className="w-3 h-3 text-emerald-600" />
-                        <span>{format(new Date(match.date), 'MMM dd, yyyy')} at {match.time}</span>
+                        <Calendar className="w-3 h-3 text-emerald-600 flex-shrink-0" />
+                        <span>{format(new Date(match.date), 'MMM dd, yyyy')}</span>
                       </div>
                       <div className="flex items-center gap-1.5 text-xs text-slate-600">
-                        <Trophy className="w-3 h-3 text-emerald-600" />
+                        <Clock className="w-3 h-3 text-emerald-600 flex-shrink-0" />
+                        <span>{match.time}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 text-xs text-slate-600">
+                        <Trophy className="w-3 h-3 text-emerald-600 flex-shrink-0" />
                         <span>{match.fieldSize}</span>
                       </div>
                     </div>
 
                     <div className="pt-1.5 border-t border-slate-200">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-xs text-slate-600">Players</span>
-                        <span className="text-xs font-semibold text-slate-900">
+                        <span className="text-xs text-slate-600 font-medium">Players</span>
+                        <span className="text-xs font-bold text-slate-900">
                           {match.currentPlayers}/{match.maxPlayers}
                         </span>
                       </div>
