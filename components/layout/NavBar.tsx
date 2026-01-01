@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
@@ -11,18 +10,15 @@ import {
   Calendar,
   MapPin,
   Users,
-  Trophy,
   BarChart3,
-  Bell,
-  Settings,
-  
+  User,
 } from "lucide-react";
 
 interface NavBarInterface {
   children: React.ReactNode;
 }
 
-// Hardcoded navigation items for Stadium Admin Dashboard - with stronger colors
+// Navigation items - only existing pages with green theme
 const navItems = [
   {
     label: "Dashboard",
@@ -35,66 +31,42 @@ const navItems = [
   {
     label: "Stadiums",
     href: "/stadiums",
-    icon: Users,
-    color: "text-blue-600 hover:text-blue-700",
-    bgColor: "bg-blue-50",
-    borderColor: "border-blue-600",
+    icon: MapPin,
+    color: "text-emerald-600 hover:text-emerald-700",
+    bgColor: "bg-emerald-50",
+    borderColor: "border-emerald-600",
   },
   {
     label: "Bookings",
     href: "/bookings",
     icon: Calendar,
-    color: "text-purple-600 hover:text-purple-700",
-    bgColor: "bg-purple-50",
-    borderColor: "border-purple-600",
+    color: "text-emerald-600 hover:text-emerald-700",
+    bgColor: "bg-emerald-50",
+    borderColor: "border-emerald-600",
   },
   {
-    label: "Matchmaking",
-    href: "/matchmaking",
+    label: "Matches",
+    href: "/matches",
     icon: Users,
-    color: "text-green-600 hover:text-green-700",
-    bgColor: "bg-green-50",
-    borderColor: "border-green-600",
+    color: "text-emerald-600 hover:text-emerald-700",
+    bgColor: "bg-emerald-50",
+    borderColor: "border-emerald-600",
   },
   {
     label: "Analytics",
     href: "/analytics",
     icon: BarChart3,
-    color: "text-orange-600 hover:text-orange-700",
-    bgColor: "bg-orange-50",
-    borderColor: "border-orange-600",
+    color: "text-emerald-600 hover:text-emerald-700",
+    bgColor: "bg-emerald-50",
+    borderColor: "border-emerald-600",
   },
   {
-    label: "Map View",
-    href: "/map",
-    icon: MapPin,
-    color: "text-red-600 hover:text-red-700",
-    bgColor: "bg-red-50",
-    borderColor: "border-red-600",
-  },
-  {
-    label: "Tournaments",
-    href: "/tournaments",
-    icon: Trophy,
-    color: "text-yellow-600 hover:text-yellow-700",
-    bgColor: "bg-yellow-50",
-    borderColor: "border-yellow-600",
-  },
-  {
-    label: "Notifications",
-    href: "/notifications",
-    icon: Bell,
-    color: "text-pink-600 hover:text-pink-700",
-    bgColor: "bg-pink-50",
-    borderColor: "border-pink-600",
-  },
-  {
-    label: "Settings",
-    href: "/settings",
-    icon: Settings,
-    color: "text-gray-600 hover:text-gray-700",
-    bgColor: "bg-gray-50",
-    borderColor: "border-gray-600",
+    label: "Profile",
+    href: "/profile",
+    icon: User,
+    color: "text-emerald-600 hover:text-emerald-700",
+    bgColor: "bg-emerald-50",
+    borderColor: "border-emerald-600",
   },
 ];
 
@@ -233,21 +205,21 @@ export default function NavBar({ children }: NavBarInterface) {
               const IconComponent = item.icon;
               return (
                 <li key={index}>
-                  <Link
-                    href={item.href}
-                    passHref
-                    className={`flex items-center rounded-md text-xs font-normal transition-all ${
-                      isActive
-                        ? `${item.bgColor} ${item.color} border-l-2 ${item.borderColor}`
-                        : "text-muted-foreground/60 hover:bg-neutral-100 hover:text-foreground"
-                    } ${isCollapsed ? "justify-center p-1.5 py-2" : "p-2 gap-2"}`}
-                    title={isCollapsed ? item.label : ""}
-                  >
-                    <IconComponent className={`h-4 w-4 flex-shrink-0 ${isActive ? item.color : "text-current"}`} />
-                    {!isCollapsed && (
-                      <span className="truncate text-xs">{item.label}</span>
-                    )}
-                  </Link>
+                    <Link
+                      href={item.href}
+                      passHref
+                      className={`flex items-center rounded-md text-xs font-normal transition-all ${
+                        isActive
+                          ? `${item.bgColor} ${item.color} border-l-2 ${item.borderColor}`
+                          : "text-muted-foreground/60 hover:bg-emerald-50 hover:text-emerald-600"
+                      } ${isCollapsed ? "justify-center p-1.5 py-2" : "p-2 gap-2"}`}
+                      title={isCollapsed ? item.label : ""}
+                    >
+                      <IconComponent className={`h-4 w-4 flex-shrink-0 ${isActive ? item.color : "text-current"}`} />
+                      {!isCollapsed && (
+                        <span className="truncate text-xs">{item.label}</span>
+                      )}
+                    </Link>
                 </li>
               );
             })}
@@ -351,7 +323,7 @@ export default function NavBar({ children }: NavBarInterface) {
                         className={`flex items-center gap-2 p-2 rounded-md text-xs font-normal transition-colors ${
                           isActive
                             ? `${item.bgColor} ${item.color} border-l-2 ${item.borderColor}`
-                            : "text-muted-foreground/60 hover:bg-neutral-100 hover:text-foreground"
+                            : "text-muted-foreground/60 hover:bg-emerald-50 hover:text-emerald-600"
                         }`}
                       >
                         <IconComponent className={`h-3.5 w-3.5 flex-shrink-0 ${isActive ? item.color : "text-current"}`} />

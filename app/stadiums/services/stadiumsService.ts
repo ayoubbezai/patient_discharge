@@ -2,9 +2,9 @@ import api from '@/lib/api';
 import { StadiumsResponse } from '@/lib/types';
 
 export const stadiumsService = {
-  getMyStadiums: async (page: number = 1): Promise<StadiumsResponse> => {
-    const response = await api.get('/stadiums/my-stadiums', {
-      params: { page },
+  getAllStadiums: async (page: number = 1, params?: any): Promise<StadiumsResponse> => {
+    const response = await api.get('/stadiums', {
+      params: { page, limit: 20, ...params },
     });
     return response.data;
   },

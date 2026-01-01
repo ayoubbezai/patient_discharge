@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
-// Use Next.js API proxy instead of direct backend calls
-const API_BASE_URL = '/api/proxy';
+// Call backend directly at port 3000
+const API_BASE_URL = 'http://localhost:3000';
 
 const api: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,

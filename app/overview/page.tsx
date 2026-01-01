@@ -250,24 +250,24 @@ export default function Dashboard() {
 
   return (
     <NavBar>
-        <div className="px-4 py-3 bg-gray-50 min-h-screen">
+        <div className="px-2 py-2 bg-gray-50 min-h-screen">
         <TopNavBar
           title="Dashboard Overview"
           showSearch={true}
         />
-        <hr className="my-3 border-gray-200" />
+        <hr className="my-2 border-gray-200" />
 
         {/* Top section with cards and sidebar - Equal height layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 h-full">
           {/* Main content area - 9 columns */}
-          <div className="lg:col-span-9 space-y-4 h-full">
+          <div className="lg:col-span-9 space-y-2 h-full">
             {/* Stats Cards */}
             <div className="h-auto">
               <StatsCards stats={mockStats} isLoading={isLoading} />
             </div>
             
             {/* Booking Trends Graph - Fixed height */}
-            <div className="h-80">
+            <div className="h-64">
               <BookingTrendsGraph
                 graphData={mockGraphData}
                 graphType={graphType}
@@ -288,16 +288,16 @@ export default function Dashboard() {
         </div>
 
         {/* Recent Bookings Table Section */}
-        <div className="mt-3">
+        <div className="mt-2">
           <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div className="p-4 border-b border-gray-200 bg-gray-50">
+            <div className="p-2 border-b border-gray-200 bg-gray-50">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="text-sm font-semibold text-gray-900">Recent Bookings</h2>
-                  <p className="text-xs text-gray-500 mt-1">Latest stadium reservations</p>
+                  <h2 className="text-xs font-semibold text-gray-900">Recent Bookings</h2>
+                  <p className="text-xs text-gray-500 mt-0.5">Latest stadium reservations</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs px-2 py-1 rounded-full bg-green-100 text-green-700">
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">
                     Total: {mockPagination.total_items}
                   </span>
                 </div>

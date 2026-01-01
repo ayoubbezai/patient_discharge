@@ -5,7 +5,7 @@ import { StadiumsResponse } from '@/lib/types';
 export const useStadiums = (page: number = 1) => {
   return useQuery<StadiumsResponse>({
     queryKey: ['stadiums', page],
-    queryFn: () => stadiumsService.getMyStadiums(page),
+    queryFn: () => stadiumsService.getAllStadiums(page),
   });
 };
 
