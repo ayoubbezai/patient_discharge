@@ -131,7 +131,7 @@ export default function ProfilePage() {
 
   return (
     <NavBar>
-      <div className="px-2 py-2 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 min-h-screen pb-6">
+      <div className="px-2 py-2 bg-slate-50 min-h-screen pb-6">
         <TopNavBar title="My Profile" showSearch={false} />
         <hr className="my-2 border-slate-200" />
 

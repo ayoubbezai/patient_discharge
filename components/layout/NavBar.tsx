@@ -142,10 +142,15 @@ export default function NavBar({ children }: NavBarInterface) {
       {/* Mobile Header */}
       <div className="md:hidden flex flex-row justify-between items-center p-2 bg-card border-b sticky top-0 z-40 shadow-sm">
         <div className="flex items-center gap-1.5">
-          <div className="h-6 w-6">
-            {/* Placeholder for logo */}
-          </div>
-          <h1 className="text-sm font-medium text-foreground/70">Football Matchmaking</h1>
+          <img 
+            src="/logo.webp" 
+            alt="Pitchon Logo" 
+            className="h-6 w-6 object-contain"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = 'none';
+            }}
+          />
+          <h1 className="text-sm font-bold text-slate-900">Pitchon</h1>
         </div>
         <Button
           variant="ghost"
@@ -176,10 +181,15 @@ export default function NavBar({ children }: NavBarInterface) {
         >
           {!isCollapsed && (
             <div className="flex items-center gap-1.5">
-              <div className="h-6 w-6">
-                {/* Placeholder for logo */}
-              </div>
-              <h1 className="text-sm font-medium text-foreground/70">Football Matchmaking</h1>
+              <img 
+                src="/logo.webp" 
+                alt="Pitchon Logo" 
+                className="h-6 w-6 object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
+              />
+              <h1 className="text-sm font-bold text-slate-900">Pitchon</h1>
             </div>
           )}
           <Button
@@ -278,11 +288,16 @@ export default function NavBar({ children }: NavBarInterface) {
           >
             <div className="flex items-center justify-between p-2.5 border-b">
               <div className="flex items-center gap-1.5">
-                <div className="h-6 w-6">
-                  {/* Placeholder for logo */}
-                </div>
-                <h1 className="text-sm font-medium text-foreground/70">
-                  Football Matchmaking
+                <img 
+                  src="/logo.webp" 
+                  alt="Pitchon Logo" 
+                  className="h-6 w-6 object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
+                />
+                <h1 className="text-sm font-bold text-slate-900">
+                  Pitchon
                 </h1>
               </div>
               <Button

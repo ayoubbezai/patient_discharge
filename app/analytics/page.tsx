@@ -64,20 +64,20 @@ const StatCard = ({
   trendValue?: string;
   color: string;
 }) => (
-  <Card className="border-slate-200 shadow-sm">
+  <Card className="border-slate-200 shadow-sm bg-white hover:shadow-md transition-shadow">
     <CardContent className="p-3">
       <div className="flex items-start justify-between">
         <div>
           <p className="text-slate-600 text-xs font-medium">{title}</p>
           <p className="text-2xl font-bold text-slate-900 mt-1">{value}</p>
           {trend && trendValue && (
-            <div className={`flex items-center gap-1 mt-1 text-xs font-medium ${trend === 'up' ? 'text-green-600' : 'text-red-600'}`}>
+            <div className={`flex items-center gap-1 mt-1 text-xs font-medium ${trend === 'up' ? 'text-emerald-600' : 'text-red-600'}`}>
               {trend === 'up' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />}
               {trendValue}
             </div>
           )}
         </div>
-        <div className={`p-2 rounded-lg ${color}`}>
+        <div className={`p-2.5 rounded-lg ${color}`}>
           <Icon className="w-5 h-5 text-white" />
         </div>
       </div>
@@ -93,7 +93,7 @@ export default function AnalyticsPage() {
 
   return (
     <NavBar>
-      <div className="px-4 py-3 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 min-h-screen pb-12">
+      <div className="px-3 py-2 bg-slate-50 min-h-screen pb-12">
         <TopNavBar title="Analytics & Reports" showSearch={false} />
         <hr className="my-3 border-slate-200" />
 
@@ -106,7 +106,7 @@ export default function AnalyticsPage() {
               icon={DollarSign}
               trend="up"
               trendValue="+12.5%"
-              color="bg-gradient-to-br from-green-500 to-emerald-600"
+              color="bg-emerald-600"
             />
             <StatCard
               title="Total Bookings"
@@ -114,7 +114,7 @@ export default function AnalyticsPage() {
               icon={Calendar}
               trend="up"
               trendValue="+8.2%"
-              color="bg-gradient-to-br from-blue-500 to-blue-600"
+              color="bg-blue-600"
             />
             <StatCard
               title="Active Stadiums"
@@ -122,7 +122,7 @@ export default function AnalyticsPage() {
               icon={MapPin}
               trend="up"
               trendValue="+1"
-              color="bg-gradient-to-br from-purple-500 to-purple-600"
+              color="bg-purple-600"
             />
             <StatCard
               title="Avg Rating"
@@ -130,17 +130,17 @@ export default function AnalyticsPage() {
               icon={Star}
               trend="up"
               trendValue="+0.3"
-              color="bg-gradient-to-br from-amber-500 to-orange-600"
+              color="bg-amber-600"
             />
           </div>
 
           {/* Charts Row 1 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Booking Trends */}
-            <Card className="border-slate-200 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-blue-50 to-blue-50 border-b border-slate-200">
-                <CardTitle className="text-slate-900 flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-blue-600" />
+            <Card className="border-slate-200 shadow-sm bg-white">
+              <CardHeader className="bg-slate-50 border-b border-slate-200 p-3">
+                <CardTitle className="text-slate-900 flex items-center gap-2 text-sm">
+                  <TrendingUp className="w-4 h-4 text-blue-600" />
                   Booking Trends (6 Months)
                 </CardTitle>
               </CardHeader>
@@ -181,10 +181,10 @@ export default function AnalyticsPage() {
             </Card>
 
             {/* Booking Status */}
-            <Card className="border-slate-200 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-purple-50 to-purple-50 border-b border-slate-200">
-                <CardTitle className="text-slate-900 flex items-center gap-2">
-                  <Activity className="w-5 h-5 text-purple-600" />
+            <Card className="border-slate-200 shadow-sm bg-white">
+              <CardHeader className="bg-slate-50 border-b border-slate-200 p-3">
+                <CardTitle className="text-slate-900 flex items-center gap-2 text-sm">
+                  <Activity className="w-4 h-4 text-purple-600" />
                   Booking Status Distribution
                 </CardTitle>
               </CardHeader>
@@ -215,10 +215,10 @@ export default function AnalyticsPage() {
           {/* Charts Row 2 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Revenue by Stadium */}
-            <Card className="border-slate-200 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-green-50 to-green-50 border-b border-slate-200">
-                <CardTitle className="text-slate-900 flex items-center gap-2">
-                  <DollarSign className="w-5 h-5 text-green-600" />
+            <Card className="border-slate-200 shadow-sm bg-white">
+              <CardHeader className="bg-slate-50 border-b border-slate-200 p-3">
+                <CardTitle className="text-slate-900 flex items-center gap-2 text-sm">
+                  <DollarSign className="w-4 h-4 text-emerald-600" />
                   Revenue by Stadium
                 </CardTitle>
               </CardHeader>
@@ -243,10 +243,10 @@ export default function AnalyticsPage() {
             </Card>
 
             {/* Daily Bookings */}
-            <Card className="border-slate-200 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-orange-50 to-orange-50 border-b border-slate-200">
-                <CardTitle className="text-slate-900 flex items-center gap-2">
-                  <Calendar className="w-5 h-5 text-orange-600" />
+            <Card className="border-slate-200 shadow-sm bg-white">
+              <CardHeader className="bg-slate-50 border-b border-slate-200 p-3">
+                <CardTitle className="text-slate-900 flex items-center gap-2 text-sm">
+                  <Calendar className="w-4 h-4 text-orange-600" />
                   Daily Bookings (This Week)
                 </CardTitle>
               </CardHeader>
@@ -272,10 +272,10 @@ export default function AnalyticsPage() {
           </div>
 
           {/* Stadium Performance Table */}
-          <Card className="border-slate-200 shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-slate-50 to-slate-50 border-b border-slate-200">
-              <CardTitle className="text-slate-900 flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-slate-600" />
+          <Card className="border-slate-200 shadow-sm bg-white">
+            <CardHeader className="bg-slate-50 border-b border-slate-200 p-3">
+              <CardTitle className="text-slate-900 flex items-center gap-2 text-sm">
+                <MapPin className="w-4 h-4 text-slate-600" />
                 Stadium Performance
               </CardTitle>
             </CardHeader>
@@ -319,28 +319,28 @@ export default function AnalyticsPage() {
           </Card>
 
           {/* Summary Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-slate-200 shadow-lg bg-gradient-to-br from-emerald-50 to-emerald-100">
-              <CardContent className="p-6">
-                <h3 className="text-sm font-semibold text-emerald-900 mb-2">Total Earnings</h3>
-                <p className="text-3xl font-bold text-emerald-700">{(totalRevenue / 1000).toFixed(0)}K DA</p>
-                <p className="text-xs text-emerald-600 mt-2">+12.5% from last month</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Card className="border-slate-200 shadow-sm bg-white">
+              <CardContent className="p-4">
+                <h3 className="text-xs font-semibold text-slate-600 mb-2">Total Earnings</h3>
+                <p className="text-2xl font-bold text-emerald-600">{(totalRevenue / 1000).toFixed(0)}K DA</p>
+                <p className="text-xs text-slate-500 mt-2">+12.5% from last month</p>
               </CardContent>
             </Card>
 
-            <Card className="border-slate-200 shadow-lg bg-gradient-to-br from-blue-50 to-blue-100">
-              <CardContent className="p-6">
-                <h3 className="text-sm font-semibold text-blue-900 mb-2">Avg Booking Value</h3>
-                <p className="text-3xl font-bold text-blue-700">{(totalRevenue / totalBookings).toFixed(0)} DA</p>
-                <p className="text-xs text-blue-600 mt-2">Per booking average</p>
+            <Card className="border-slate-200 shadow-sm bg-white">
+              <CardContent className="p-4">
+                <h3 className="text-xs font-semibold text-slate-600 mb-2">Avg Booking Value</h3>
+                <p className="text-2xl font-bold text-blue-600">{(totalRevenue / totalBookings).toFixed(0)} DA</p>
+                <p className="text-xs text-slate-500 mt-2">Per booking average</p>
               </CardContent>
             </Card>
 
-            <Card className="border-slate-200 shadow-lg bg-gradient-to-br from-purple-50 to-purple-100">
-              <CardContent className="p-6">
-                <h3 className="text-sm font-semibold text-purple-900 mb-2">Occupancy Rate</h3>
-                <p className="text-3xl font-bold text-purple-700">78%</p>
-                <p className="text-xs text-purple-600 mt-2">Average across all stadiums</p>
+            <Card className="border-slate-200 shadow-sm bg-white">
+              <CardContent className="p-4">
+                <h3 className="text-xs font-semibold text-slate-600 mb-2">Occupancy Rate</h3>
+                <p className="text-2xl font-bold text-purple-600">78%</p>
+                <p className="text-xs text-slate-500 mt-2">Average across all stadiums</p>
               </CardContent>
             </Card>
           </div>
